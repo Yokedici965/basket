@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veri & QC Paneli</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.2);
+    }
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #020617, #0f172a 45%, #1e1b4b);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 32px;
+    }
+    h1, h2, h3 {
+      margin: 0;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h1 span {
+      padding: 6px 12px;
+      background: rgba(56, 189, 248, 0.15);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      backdrop-filter: blur(10px);
+    }
+    .card h2 {
+      font-size: 18px;
+      color: #f8fafc;
+    }
+    .card p.hint {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: -4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(15, 23, 42, 0.65);
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+    thead {
+      background: rgba(148, 163, 184, 0.12);
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(56, 189, 248, 0.18);
+      border-radius: 999px;
+      font-size: 12px;
+      color: #e0f2fe;
+      font-weight: 500;
+    }
+    .note {
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      background: rgba(148, 163, 184, 0.08);
+      border-radius: 10px;
+      font-size: 13px;
+    }
+    ul.checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    ul.checklist li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    ul.checklist li::before {
+      content: "□";
+      color: var(--accent);
+      font-size: 16px;
+    }
+    .footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 18px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Veri & QC Paneli <span>QA Dashboard</span></h1>
+
+  <div class="grid">
+    <section class="card">
+      <h2>1. Çalıştırma Özeti</h2>
+      <p class="hint">Her `tools/run_video.py` koşusundan sonra güncelle.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Tarih</th>
+            <th>Video</th>
+            <th>Komut</th>
+            <th>Ball Gap</th>
+            <th>Statik Top</th>
+            <th>Notlar</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>2. Etiketleme / Olay Doğrulama Kuyruğu</h2>
+      <p class="hint">Drive / pull-up / spot-up / assist kliplerini burada takip et.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Clip</th>
+            <th>Etiket</th>
+            <th>Frame Başlangıç</th>
+            <th>Frame Bitiş</th>
+            <th>Durum</th>
+            <th>QA Notu</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>3. Pota Kalibrasyon & Drift</h2>
+      <p class="hint">Çoklu QC çıktılarında sapma görürsen kaydet.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>QC Kaynağı</th>
+            <th>Sol Sapma</th>
+            <th>Sağ Sapma</th>
+            <th>Radius Farkı</th>
+            <th>Aksiyon</th>
+            <th>Not</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>4. Takip / Statik Top Sorunları</h2>
+      <p class="hint">Özel durumları (örn. köşede duran top) burada topla.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Video</th>
+            <th>Frame / Zaman</th>
+            <th>Sorun</th>
+            <th>Açıklama</th>
+            <th>Öncelik</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>5. Ek Dosya & Referanslar</h2>
+      <p class="hint">Etiket paketleri, ekran kayıtları gibi kaynak bağlantıları.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Tarih</th>
+            <th>Açıklama</th>
+            <th>Konum / Link</th>
+            <th>Parola</th>
+            <th>Not</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top: 20px;">
+    <h2>Zorunlu Kontrol Listesi</h2>
+    <p class="hint">Her iterasyonda kontrol etmen gerekenler.</p>
+    <ul class="checklist">
+      <li>Çalıştırma sonrası Tablo 1’e ball gap & statik top değerlerini gir.</li>
+      <li>Etiketlediğin drive/pull-up/spot-up klipleri Tablo 2’ye ekle.</li>
+      <li>Hoop drift sapması varsa Tablo 3’e yaz ve gerekiyorsa yeniden kalibrasyon planla.</li>
+      <li>Gözlemlediğin özel takip sorunlarını Tablo 4’e kaydet.</li>
+      <li>Yeni dosya veya referans paylaştığında Tablo 5’e link ekle.</li>
+    </ul>
+    <div class="note">
+      <strong>Not:</strong> Sayfayı tarayıcıda açıp alanları doldurup çıktı alabilir ya da kopyalayarak raporlarına ekleyebilirsin. Kalıcı kayıt için Markdown/Notion gibi bir platforma taşıman önerilir.
+    </div>
+  </section>
+
+  <footer class="footer">
+    Verileri düzenli güncel tutman, çözüm geliştirme sürecimizi hızlandıracaktır.
+  </footer>
+</body>
+</html>

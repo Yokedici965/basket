@@ -1,0 +1,16 @@
+ultralytics==8.3.0
+opencv-python
+numpy
+pandas
+tqdm
+onnxruntime-gpu
+lapx
+filterpy
+paddleocr
+pyyaml
+pytest
+pytest-cov
+pytest-xdist
+scipy
+pillow
+customtkinter

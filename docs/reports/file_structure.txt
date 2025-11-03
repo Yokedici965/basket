@@ -1,0 +1,32 @@
+# ls -lah app/calibration
+total 24K
+drwxrwxrwx 1 user user  512 Oct  4 19:55 .
+drwxrwxrwx 1 user user  512 Oct  4 20:01 ..
+-rwxrwxrwx 1 user user    5 Oct  4 19:42 __init__.py
+drwxrwxrwx 1 user user  512 Oct 15 17:01 __pycache__
+-rwxrwxrwx 1 user user 4.6K Oct 15 17:05 export_samples.py
+-rwxrwxrwx 1 user user  12K Oct 15 17:04 hoop_locator.py
+-rwxrwxrwx 1 user user 1.6K Oct 15 17:00 hoops_cli.py
+
+# ls -lah app/events
+total 20K
+drwxrwxrwx 1 user user  512 Oct  4 18:40 .
+drwxrwxrwx 1 user user  512 Oct  4 20:01 ..
+-rwxrwxrwx 1 user user   73 Oct  4 18:43 __init__.py
+drwxrwxrwx 1 user user  512 Oct  4 18:50 __pycache__
+-rwxrwxrwx 1 user user 5.8K Oct  4 18:49 cli.py
+-rwxrwxrwx 1 user user  12K Oct  4 18:48 engine.py
+
+# ls -lah tests
+(missing)
+
+# ls -lah tools
+total 28K
+drwxrwxrwx 1 user user  512 Oct 15 17:02 .
+drwxrwxrwx 1 user user  512 Oct 15 16:39 ..
+-rwxrwxrwx 1 user user 2.0K Oct 15 17:02 calibration_review.py
+-rwxrwxrwx 1 user user 2.0K Oct  5 16:28 hoop_training_panel.py
+-rwxrwxrwx 1 user user 4.9K Oct  5 16:27 prepare_hoop_dataset.py
+-rwxrwxrwx 1 user user 4.8K Oct  7 20:43 render_overlays.py
+-rwxrwxrwx 1 user user 2.0K Oct  5 16:27 train_hoop_model.py
+

@@ -1,0 +1,55 @@
+court:
+  polygon:
+  - - 0
+    - 0
+  - - 3839
+    - 0
+  - - 3839
+    - 2159
+  - - 0
+    - 2159
+  hoops:
+  - name: left
+    x: 1004.84
+    y: 1533.6
+    radius: 141.13
+  - name: right
+    x: 2892.81
+    y: 1453.57
+    radius: 137.35
+model: yolov8l.pt
+processing:
+  frame_stride: 1
+  save_detections: true
+  start_time_sec: 0
+  duration_sec: null
+  log_every_n: 600
+detection:
+  base_conf: 0.15
+  nms_iou: 0.45
+  img_size: 832
+  use_gpu: true
+  half_precision: true
+  classes:
+    person: 0
+    ball: 32
+  thresholds:
+    person: 0.25
+    ball: 0.12
+  static_ball:
+    enabled: true
+    frames: 15
+    grid_px: 5
+tracking:
+  iou_threshold: 0.4
+  max_age: 60
+  center_distance_threshold: 60.0
+events:
+  ball_gap_sec: 1.0
+  possession_dist_threshold: 150.0
+  min_possession_frames: 3
+  hoop_radius: 140.0
+  shot_speed_threshold: 55.0
+  shot_up_threshold: 25.0
+  rebound_window_sec: 2.5
+  made_window_sec: 1.2

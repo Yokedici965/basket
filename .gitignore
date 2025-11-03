@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Data / outputs
+input_videos/
+outputs/
+models/
+runs/
+renders/
+data/event_samples/
+configs/calibrations/
+
+# IDE
+.vscode/
+.idea/
