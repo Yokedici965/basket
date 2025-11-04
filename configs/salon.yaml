@@ -41,9 +41,9 @@ detection:
     frames: 15
     grid_px: 5
 tracking:
-  iou_threshold: 0.5
-  max_age: 60
-  center_distance_threshold: 40.0
+  iou_threshold: 0.35
+  max_age: 50
+  center_distance_threshold: 80.0
 events:
   ball_gap_sec: 1.0
   possession_dist_threshold: 150.0
