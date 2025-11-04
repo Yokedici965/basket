@@ -19,15 +19,15 @@ court:
     radius: 137.35
 model: yolov8l.pt
 processing:
-  frame_stride: 1
+  frame_stride: 2
   save_detections: true
   start_time_sec: 0
   duration_sec: null
-  log_every_n: 600
+  log_every_n: 300
 detection:
   base_conf: 0.15
   nms_iou: 0.45
-  img_size: 832
+  img_size: 1024
   use_gpu: true
   half_precision: true
   classes:
@@ -35,15 +35,15 @@ detection:
     ball: 32
   thresholds:
     person: 0.25
-    ball: 0.12
+    ball: 0.04
   static_ball:
     enabled: true
     frames: 15
     grid_px: 5
 tracking:
-  iou_threshold: 0.4
+  iou_threshold: 0.5
   max_age: 60
-  center_distance_threshold: 60.0
+  center_distance_threshold: 40.0
 events:
   ball_gap_sec: 1.0
   possession_dist_threshold: 150.0
